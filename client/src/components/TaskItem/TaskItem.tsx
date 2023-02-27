@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {TaskItemStyles, TaskTitle} from "./TaskItem.styles";
 import {ITask} from "../../interfaces/taskInterface";
 import Checkmark from "../UI/Checkmark/Checkmark";
@@ -12,21 +12,14 @@ const TaskItem : React.FC<ITaskItemProps> = ({task}) => {
     console.log('TaskItem render')
     const [isComplete, setIsComplete] = useState<boolean>(task.isDone);
 
-    const onChangeStatus = (result: boolean) => {
-        setIsComplete(result);
-    };
-
-    const changeTaskStatusRequest = useCallback(async () => {
-        const response = await axios.patch(`http://localhost:8000/tasks/${task.id}`, {isDone: isComplete});
-    }, [isComplete, task.id])
-
-    useEffect(() => {
-        changeTaskStatusRequest();
-    }, [isComplete, changeTaskStatusRequest]);
+    const onChangeStatus = useCallback(() => {
+        setIsComplete(prevState => !prevState);
+        axios({url: `http://localhost:8000/tasks/${task.id}`, method: "patch", data: {isDone: isComplete}});
+    }, [task.id]);
 
     return (
         <TaskItemStyles>
-            <Checkmark  status={task.isDone} changeStatus={onChangeStatus}/>
+            <Checkmark  status={isComplete} changeStatus={onChangeStatus}/>
             <TaskTitle to={`${task.id}`}>{task.title}</TaskTitle>
         </TaskItemStyles>
     );

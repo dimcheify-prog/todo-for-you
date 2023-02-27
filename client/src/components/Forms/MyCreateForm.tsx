@@ -1,21 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {DefaultButton} from "../UI/Buttons/DefaultButton.styles";
 import {DefaultInput} from "../UI/Inputs/DefaultInput.styles";
 import {ITask} from "../../interfaces/taskInterface";
-import axios from "axios";
 import {v4} from "uuid";
 import {useNavigate} from "react-router-dom";
-import {useInput} from "../../hooks/useInput";
+import {useInput} from "../../hooks/useInput"
+
+interface ICreateFormProps {
+    onCreateTask: (newTask: ITask) => void;
+}
 
 
-const MyCreateForm = () => {
+const MyCreateForm : React.FC<ICreateFormProps> = ({onCreateTask}) => {
     console.log('MyCreateForm render')
     const [taskTitle, resetTaskTitle] = useInput('');
     const navigate = useNavigate();
-
-    const createTaskRequest = async (taskObj: ITask) => {
-        const response = await axios.post('http://localhost:8000/tasks', {...taskObj});
-    };
 
     const handlerSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -24,7 +23,7 @@ const MyCreateForm = () => {
             title: taskTitle.value,
             isDone: false,
         };
-        createTaskRequest(newTaskObj);
+        onCreateTask(newTaskObj);
         navigate(-1);
     };
 

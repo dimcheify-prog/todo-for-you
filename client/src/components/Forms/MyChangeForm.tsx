@@ -7,22 +7,22 @@ import {useInput} from "../../hooks/useInput";
 
 interface IChangeFormProps {
     task: ITask;
-    changeTask: React.SetStateAction<any>;
+    onChange: React.SetStateAction<any>;
     formActive: React.SetStateAction<any>;
 }
 
-const MyChangeForm : React.FC<IChangeFormProps> = ({task, formActive, changeTask}) => {
+const MyChangeForm : React.FC<IChangeFormProps> = ({task, formActive, onChange}) => {
     console.log('MyChangeForm render')
     const [taskTitle, resetTaskTitle] = useInput(task.title);
 
 
     const changeTaskRequest = async () => {
-        const response = await axios.patch(`http://localhost:8000/tasks/${task.id}`, {title: taskTitle.value});
+        await axios.patch(`http://localhost:8000/tasks/${task.id}`, {title: taskTitle.value});
     };
 
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        changeTask({...task, title: taskTitle.value})
+        onChange({...task, title: taskTitle.value})
         changeTaskRequest();
         formActive(false);
     };

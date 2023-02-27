@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 
 const TaskPage : React.FC = () => {
     console.log('TaskPage render')
-    const {data, error, loading} = useFetch('http://localhost:8000/tasks');
+    const {data, error, loading} = useFetch('http://localhost:8000/tasks', 'get');
 
     // здесь мы обрабатываем запрос и можем сигнализировать о неудачном запросе
     if (loading) return <Watch />;
