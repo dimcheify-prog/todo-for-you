@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const SingleTaskStyles = styled.div`
-  width: 80%;  
+  width: 50%;  
   min-height: 20rem;
   display: flex;
   flex-direction: column;
-  background: rgba(238, 204, 204, 0.64);
+  background: rgba(0, 0, 0, 0.2);
   align-items: flex-start;
   justify-content: space-between;
 `;

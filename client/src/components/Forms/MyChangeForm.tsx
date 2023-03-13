@@ -12,7 +12,6 @@ interface IChangeFormProps {
 }
 
 const MyChangeForm : React.FC<IChangeFormProps> = ({task, formActive, onChange}) => {
-    console.log('MyChangeForm render')
     const [taskTitle, resetTaskTitle] = useInput(task.title);
 
 

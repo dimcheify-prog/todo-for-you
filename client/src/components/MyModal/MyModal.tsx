@@ -9,7 +9,6 @@ interface IModalProps {
 }
 
 const MyModal : React.FC<IModalProps> = ({onClose, task, remove}) => {
-    console.log('MyModal render')
     return (
         <MyModalStyles onClick={onClose}>
             <ModalBody onClick={(e: React.SyntheticEvent) => e.stopPropagation()}>

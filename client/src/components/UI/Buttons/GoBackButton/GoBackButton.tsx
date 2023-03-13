@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {FaArrowCircleLeft} from "react-icons/fa";
+import {GoBackButtonStyles} from "./GoBackButton.styles";
 
 const GoBackButton = () => {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const GoBackButton = () => {
     };
 
     return (
-        <FaArrowCircleLeft size={'5rem'} color={'#61989d'} cursor={'pointer'} onClick={handleClick}/>
+        <GoBackButtonStyles onClick={handleClick} />
     );
 };
 

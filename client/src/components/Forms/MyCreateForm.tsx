@@ -12,7 +12,6 @@ interface ICreateFormProps {
 
 
 const MyCreateForm : React.FC<ICreateFormProps> = ({onCreateTask}) => {
-    console.log('MyCreateForm render')
     const [taskTitle, resetTaskTitle] = useInput('');
     const navigate = useNavigate();
 

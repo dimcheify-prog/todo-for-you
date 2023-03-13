@@ -5,12 +5,11 @@ import {Watch} from "react-loader-spinner";
 import ErrorComponent from "../../components/Error/ErrorComponent";
 import {useLocation} from 'react-router-dom';
 import SingleTask from "../../components/SingleTask/SingleTask";
-import GoBackButton from "../../components/UI/Buttons/GoBackButton";
+import GoBackButton from "../../components/UI/Buttons/GoBackButton/GoBackButton";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const SingleTaskPage : React.FC = () => {
-    console.log('SingleTaskPage render')
     const location = useLocation();
     const id = location.pathname;
     const navigate = useNavigate();

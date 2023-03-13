@@ -5,6 +5,10 @@ export const TasksListStyles = styled.div`
   min-height: 5rem;
   display: flex;
   flex-direction: column;
-  background: rgba(238, 204, 204, 0.64);
+  //background: rgba(15, 19, 138, 0.2);
   align-items: center;
+`;
+
+export const MainTitle = styled.h1`
+  margin-bottom: 2rem;  
 `;

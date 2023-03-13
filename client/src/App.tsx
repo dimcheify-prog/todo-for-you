@@ -6,7 +6,6 @@ import Layout from "./components/Layout/Layout";
 import CreateTaskPage from "./pages/CreateTaskPage/CreateTaskPage";
 
 function App() {
-    console.log('App render')
   return (
     <Routes>
         <Route path='/' element={<Layout/>}>

@@ -12,7 +12,6 @@ interface ISingleTaskProps {
 }
 
 const SingleTask : React.FC<ISingleTaskProps> = ({data, onRemove}) => {
-    console.log('SingleTask render')
     const [task, setTask] = useState<ITask>(data);
     const [formActive, setFormActive] = useState<boolean>();
     const [modalActive, setModalActive] = useState<boolean>();

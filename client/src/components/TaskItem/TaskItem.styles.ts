@@ -3,10 +3,20 @@ import {FcCheckmark} from "react-icons/fc";
 import {Link} from "react-router-dom";
 
 export const TaskItemStyles = styled.div`
-  width: 100%;  
+  width: 100%;
+  height: 5rem;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  &:hover {
+    transform: translateY(-2px);
+  }
+  &:active {
+    color: #fff;
+  }
 `;
 
 export const TaskTitle = styled(Link)`
@@ -15,12 +25,6 @@ export const TaskTitle = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   color: black;
-  &:hover {
-    transform: translateY(-2px);
-  }
-  &:active {
-    color: chocolate;
-  }
 `;
 
 export const Checkmark = styled(FcCheckmark)`
